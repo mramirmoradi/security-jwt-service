@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  security:
+    build: .
+    container_name: security
+    restart: always
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./.env
+    networks:
+      - security-jwt-network
+    depends_on:
+      - security-db
+    links:
+      - "security-db:security-db"
+
+
+  security-db:
+    image: mysql:latest
+    container_name: security-db
+    restart: always
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./.env
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - security-jwt-network
+
+networks:
+  security-jwt-network:
+    driver: bridge
+
+volumes:
+  db:
+    driver: local

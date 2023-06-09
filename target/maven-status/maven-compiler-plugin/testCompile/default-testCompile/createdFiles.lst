@@ -1,0 +1,4 @@
+com/theamirmoradi/securityjwt/SecurityJwtApplicationTests.class
+com/theamirmoradi/securityjwt/user/UserServiceTest.class
+com/theamirmoradi/securityjwt/security/JwtServiceTest.class
+com/theamirmoradi/securityjwt/security/AuthenticationServiceTest.class
